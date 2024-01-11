@@ -76,6 +76,8 @@ public class Desafio : MonoBehaviour
         if (tiempoRestante <= 0 || resetChallenge)
         {
             startChallenge = false;
+            resetChallenge = false;
+            
             OnResetearContador();
 
             for (int i = 0; i < Targets.Length; i++)
@@ -90,7 +92,7 @@ public class Desafio : MonoBehaviour
             textoTiempo.text = "Tiempo: " + tiempoRestante.ToString("F2");
             isActivated = false;
         } 
-        else if (startChallenge)
+        else if (startChallenge && !isActivated)
         {
             OnResetearContador();
             isActivated = true;
@@ -156,3 +158,4 @@ public class Desafio : MonoBehaviour
         time = 0f;
     }
 }
+
