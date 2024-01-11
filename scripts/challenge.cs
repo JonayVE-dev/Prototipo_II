@@ -82,8 +82,6 @@ public class Desafio : MonoBehaviour
             GetComponent<Renderer>().material = initialMaterial;
             startChallenge = false;
             resetChallenge = false;
-            
-            OnResetearContador();
 
             for (int i = 0; i < Targets.Length; i++)
             {
