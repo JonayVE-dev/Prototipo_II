@@ -5,6 +5,8 @@ using TMPro;
 
 public class Desafio : MonoBehaviour
 {
+    private Material initialMaterial;
+    private Material highlightMaterial;
     private bool isChallengeActive = false;
     private bool startChallenge = false;
     private bool resetChallenge = false;
@@ -27,6 +29,7 @@ public class Desafio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Renderer>().material = initialMaterial;
         tiempoRestante = tiempoMaximo;
         puntuacionNotificadores = FindObjectsOfType<PuntuacionNotificador>();
         foreach (PuntuacionNotificador puntuacionNotificador in puntuacionNotificadores)
@@ -61,6 +64,7 @@ public class Desafio : MonoBehaviour
             {
                 time = 0f;
                 startChallenge = true;
+                GetComponent<Renderer>().material = highlightMaterial;
             }
         } else if (isChallengeActive && startChallenge)
         {
@@ -75,6 +79,7 @@ public class Desafio : MonoBehaviour
 
         if (tiempoRestante <= 0 || resetChallenge)
         {
+            GetComponent<Renderer>().material = initialMaterial;
             startChallenge = false;
             resetChallenge = false;
             
@@ -158,4 +163,3 @@ public class Desafio : MonoBehaviour
         time = 0f;
     }
 }
-
