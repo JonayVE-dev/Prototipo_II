@@ -54,7 +54,7 @@ public class Desafio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (isChallengeActive)
+        if (isChallengeActive && !startChallenge)
         {
             time += Time.deltaTime;
             if (time >= limit_time)
@@ -62,10 +62,18 @@ public class Desafio : MonoBehaviour
                 time = 0f;
                 startChallenge = true;
             }
+        } else if (isChallengeActive && startChallenge)
+        {
+            time += Time.deltaTime;
+            if (time >= limit_time)
+            {
+                time = 0f;
+                resetChallenge = true;
+            }
         }
         
 
-        if (tiempoRestante <= 0)
+        if (tiempoRestante <= 0 || resetChallenge)
         {
             startChallenge = false;
             OnResetearContador();
