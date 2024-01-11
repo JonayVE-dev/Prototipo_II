@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class activate_movement : MonoBehaviour
 {
+    public Material initialMaterial;
+    public Material highlightMaterial;
     private bool isMovementActive = false;
     private float time = 0f;
     private float limit_time = 1.5f;
@@ -20,6 +22,7 @@ public class activate_movement : MonoBehaviour
             Targets[i] = targetParent.transform.GetChild(i).gameObject;
             initialPositions[i] = Targets[i].transform.position;
         }
+        GetComponent<Renderer>().material = initialMaterial;
     }
 
     // Update is called once per frame
@@ -41,6 +44,10 @@ public class activate_movement : MonoBehaviour
                         if (!script.enabled)
                         {
                             Targets[i].transform.position = initialPositions[i];
+                            GetComponent<Renderer>().material = initialMaterial;
+                        } else
+                        {
+                            GetComponent<Renderer>().material = highlightMaterial;
                         }
                     }
                 }
