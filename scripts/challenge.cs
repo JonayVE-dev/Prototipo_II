@@ -5,8 +5,8 @@ using TMPro;
 
 public class Desafio : MonoBehaviour
 {
-    private Material initialMaterial;
-    private Material highlightMaterial;
+    public Material initialMaterial;
+    public Material highlightMaterial;
     private bool isChallengeActive = false;
     private bool startChallenge = false;
     private bool resetChallenge = false;
