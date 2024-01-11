@@ -31,9 +31,6 @@ public class Target_movement : MonoBehaviour
     void Update()
     {
         float movement = Mathf.Sin(Time.time * moveSpeed) * moveDistance;
-        Debug.Log(Time.time);
-        Debug.Log(moveSpeed);
-        Debug.Log(Time.time * moveSpeed);
         Vector3 newPosition = initialPosition;
 
         switch (moveDirection)
